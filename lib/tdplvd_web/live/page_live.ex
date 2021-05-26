@@ -14,4 +14,13 @@ defmodule TdplvdWeb.PageLive do
   defp inc_value(socket) do
     assign(socket, the_value: socket.assigns.the_value + 1)
   end
+  
+  @impl true
+  def handle_event("dec_value", _session, socket) do
+    {:noreply, dec_value(socket)}
+  end
+
+  defp dec_value(socket) do
+    assign(socket, the_value: socket.assigns.the_value - 1)
+  end
 end
