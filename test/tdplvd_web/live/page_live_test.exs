@@ -10,7 +10,7 @@ defmodule TdplvdWeb.PageLiveTest do
   end
 
   test "user can click \"Increment\" button to increment the value", %{conn: conn} do
-    {:ok, view, html} = live(conn, "/")
+    {:ok, view, _html} = live(conn, "/")
 
     assert has_element?(view, "#the-value", "0") 
     
@@ -19,5 +19,17 @@ defmodule TdplvdWeb.PageLiveTest do
     |> render_click()
 
     assert has_element?(view, "#the-value", "1") 
+  end
+
+  test "user can click \"Decrement\" button to decrement the value", %{conn: conn} do
+    {:ok, view, _html} = live(conn, "/")
+
+    assert has_element?(view, "#the-value", "0") 
+    
+    view 
+    |> element("button#value-decrementer", "Decrement") 
+    |> render_click()
+
+    assert has_element?(view, "#the-value", "-1") 
   end
 end
