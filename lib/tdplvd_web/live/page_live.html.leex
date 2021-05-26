@@ -1,4 +1,14 @@
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}", name: "Tdplvd" %></h1>
-  <p>Voted worst-named of 2021 app by J.D. Power and Associates</p>
+  <p>Voted worst-named app of 2021 by J.D. Power and Associates</p>
 </section>
+
+<section class="phx-hero">
+  <h2 id="the-value"><%= @the_value %></h2>
+</section>
+
+<section class="row">
+  <div class="column">
+    <button id="value-incrementer" phx-click="inc_value">Increment</button>
+  </div>
+</div>
